@@ -1,8 +1,10 @@
 package com.algodomain.task.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.algodomain.task.entity.Product;
@@ -17,5 +19,10 @@ public class ProductController {
 	@PostMapping("/product")
 	public void addProduct(@RequestBody Product product) {
 		productService.saveProduct(product);
+	}
+	
+	@GetMapping("/products")
+	public Product getProduct(){
+		return productService.getProduct(1006);
 	}
 }

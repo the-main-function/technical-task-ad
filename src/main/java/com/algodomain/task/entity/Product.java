@@ -29,6 +29,8 @@ public class Product {
 	@Column(name = "base_price")
 	double basePrice;
 	
+	double discount;
+	
 	@OneToOne
 	@JoinColumn(name="charge_id")
 	Charges charges;
@@ -83,6 +85,14 @@ public class Product {
 
 	public void setBasePrice(double basePrice) {
 		this.basePrice = basePrice;
+	}
+	
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
 	}
 
 	public Charges getCharges() {

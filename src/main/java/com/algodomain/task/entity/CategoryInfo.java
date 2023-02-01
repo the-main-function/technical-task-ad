@@ -18,9 +18,11 @@ public class CategoryInfo {
 	
 	String name;
 	
-	float discount;
+	double discount;
 	
-	float delivery;
+	double gst;
+	
+	double delivery;
 	
 	public CategoryInfo() {
 		super();
@@ -34,21 +36,28 @@ public class CategoryInfo {
 		this.name = name;
 	}
 
-	public float getDiscount() {
+	public double getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(float discount) {
+	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
+	
+	public double getGst() {
+		return gst;
+	}
 
-	public float getDelivery() {
+	public void setGst(double gst) {
+		this.gst = gst;
+	}
+
+	public double getDelivery() {
 		return delivery;
 	}
 
-	public void setDelivery(float delivery) {
+	public void setDelivery(double delivery) {
 		this.delivery = delivery;
-	}
-	
+	}	
 	
 }
