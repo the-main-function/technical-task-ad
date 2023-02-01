@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.algodomain.task.entity.Product;
 import com.algodomain.task.service.ProductService;
+import com.algodomain.task.utils.ApiResponse;
 
 @RestController
 public class ProductController {
@@ -25,17 +26,18 @@ public class ProductController {
 	}
 	
 	@GetMapping("/products/{productId}")
-	public Product getProducts(@PathVariable int productId){
-		return productService.getProduct(productId);
+	public ResponseEntity<Product> getProducts(@PathVariable int productId){
+		return ResponseEntity.ok(productService.getProduct(productId));
 	}
 	
 	@DeleteMapping("/products/{productId}")
-	public void deleteProduct(@PathVariable int productId) {
+	public ResponseEntity<ApiResponse> deleteProduct(@PathVariable int productId) {
 		productService.removeProduct(productId);
+		return ResponseEntity.ok(new ApiResponse("product with id : " + productId + "deleted", true));
 	}
 	
 	@PutMapping("/product")
-	public void updateProduct(@RequestBody Product product) {
-		productService.updateProduct(product);
+	public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
+		return ResponseEntity.ok(productService.updateProduct(product));
 	}
 }

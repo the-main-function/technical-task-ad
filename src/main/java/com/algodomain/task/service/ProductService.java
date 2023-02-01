@@ -47,15 +47,15 @@ public class ProductService {
 	}
 	
 	public void removeProduct(int productId) {
-		productRepo.deleteById(productId);
+		productRepo.delete(getProduct(productId));
 	}
 	
-	public void updateProduct(Product product) {
-		Product existingProduct = productRepo.findById(product.getProductId()).orElse(null);
+	public Product updateProduct(Product product) {
+		Product existingProduct = getProduct(product.getProductId());
 		existingProduct.setName(product.getName());
 		existingProduct.setCategory(product.getCategory());
 		existingProduct.setBasePrice(product.getBasePrice());
 		existingProduct.setProductType(product.getProductType());
-		saveProduct(existingProduct);
+		return saveProduct(existingProduct);
 	}
 }
