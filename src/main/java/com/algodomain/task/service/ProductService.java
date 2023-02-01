@@ -20,6 +20,10 @@ public class ProductService {
 	@Autowired
 	private ChargesService chargesService;
 	
+	public boolean ifProductExist(Product product) {
+		return productRepo.existsById(product.getProductId());
+	}
+	
 	public Product saveProduct(Product product) {
 		
 		CategoryInfo categoryInfo = categoryInfoService.getCategoryByName(product.getCategory());

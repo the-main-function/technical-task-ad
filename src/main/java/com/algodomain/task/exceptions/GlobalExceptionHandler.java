@@ -13,7 +13,13 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFoundException ex){
 		String message = ex.getMessage();
-		ApiResponse apiResponse = new ApiResponse(message,false);
-		return new ResponseEntity<ApiResponse>(apiResponse,HttpStatus.NOT_FOUND);	
+		return new ResponseEntity<ApiResponse>(new ApiResponse(message,false),HttpStatus.NOT_FOUND);	
+	}
+	
+	
+	@ExceptionHandler(ResourceExistsException.class)
+	public ResponseEntity<ApiResponse> resourceExistExceptionHandler(ResourceExistsException ex){
+		String message = ex.getMessage();
+		return new ResponseEntity<ApiResponse>(new ApiResponse(message,false),HttpStatus.BAD_REQUEST);
 	}
 }

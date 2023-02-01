@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.algodomain.task.entity.Product;
+import com.algodomain.task.exceptions.ResourceExistsException;
 import com.algodomain.task.service.ProductService;
 import com.algodomain.task.utils.ApiResponse;
 
@@ -23,6 +24,9 @@ public class ProductController {
 	
 	@PostMapping("/product")
 	public ResponseEntity<Product> addProduct(@RequestBody Product product) {
+		if(productService.ifProductExist(product)) {
+			throw new ResourceExistsException("resource already exists");
+		}
 		return new ResponseEntity<Product>(productService.saveProduct(product),HttpStatus.CREATED);
 	}
 	
