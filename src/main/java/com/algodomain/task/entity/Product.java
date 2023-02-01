@@ -47,6 +47,16 @@ public class Product {
 		super();
 	}
 
+	public Product(int productId, String name, String productType, String category, double basePrice) {
+		super();
+		this.productId = productId;
+		this.name = name;
+		this.productType = productType;
+		this.category = category;
+		this.basePrice = basePrice;
+	}
+
+
 	public int getProductId() {
 		return productId;
 	}

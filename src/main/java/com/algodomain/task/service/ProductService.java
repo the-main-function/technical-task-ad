@@ -43,4 +43,17 @@ public class ProductService {
 	public Product getProduct(int productId) {
 		return productRepo.findById(productId).get();
 	}
+	
+	public void removeProduct(int productId) {
+		productRepo.deleteById(productId);
+	}
+	
+	public void updateProduct(Product product) {
+		Product existingProduct = productRepo.findById(product.getProductId()).orElse(null);
+		existingProduct.setName(product.getName());
+		existingProduct.setCategory(product.getCategory());
+		existingProduct.setBasePrice(product.getBasePrice());
+		existingProduct.setProductType(product.getProductType());
+		saveProduct(existingProduct);
+	}
 }
