@@ -39,6 +39,78 @@ public class Product {
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
-	Category categoryInfo;
+	CategoryInfo categoryInfo;
+	
+	public Product() {
+		super();
+	}
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getProductType() {
+		return productType;
+	}
+
+	public void setProductType(String productType) {
+		this.productType = productType;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public double getBasePrice() {
+		return basePrice;
+	}
+
+	public void setBasePrice(double basePrice) {
+		this.basePrice = basePrice;
+	}
+
+	public Charges getCharges() {
+		return charges;
+	}
+
+	public void setCharges(Charges charges) {
+		this.charges = charges;
+	}
+
+	public double getFinalPrice() {
+		return finalPrice;
+	}
+
+	public void setFinalPrice(double finalPrice) {
+		this.finalPrice = finalPrice;
+	}
+
+	public CategoryInfo getCategoryInfo() {
+		return categoryInfo;
+	}
+
+	public void setCategoryInfo(CategoryInfo categoryInfo) {
+		this.categoryInfo = categoryInfo;
+	}
+
+	
+	
+	
 		
 }

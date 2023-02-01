@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categories")
-public class Category {
+public class CategoryInfo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,4 +21,34 @@ public class Category {
 	float discount;
 	
 	float delivery;
+	
+	public CategoryInfo() {
+		super();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(float discount) {
+		this.discount = discount;
+	}
+
+	public float getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(float delivery) {
+		this.delivery = delivery;
+	}
+	
+	
 }
