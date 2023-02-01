@@ -27,7 +27,7 @@ public class ProductService {
 		product.setDiscount(discount);
 		
 		//setting charges
-		double gst = (product.getBasePrice() - discount) * categoryInfoService.getCategoryByName(product.getCategory()).getGst();
+		double gst = (product.getBasePrice() - discount) * categoryInfoService.getCategoryByName(product.getCategory()).getGst()/100;
 		product.setCharges(chargesService.setCharges(product, gst, categoryInfoService.getCategoryByName(product.getCategory()).getDelivery()));
 		
 		//setting final price
@@ -37,7 +37,7 @@ public class ProductService {
 	}
 	
 	public double calculateDiscountAmount(double discountPercentage, double basePrice) {
-		return discountPercentage*basePrice;
+		return discountPercentage*basePrice/100;
 	}
 	
 	public Product getProduct(int productId) {

@@ -27,6 +27,14 @@ public class CategoryInfo {
 	public CategoryInfo() {
 		super();
 	}
+	
+	public CategoryInfo(String name, double discount, double gst, double delivery) {
+		super();
+		this.name = name;
+		this.discount = discount;
+		this.gst = gst;
+		this.delivery = delivery;
+	}
 
 	public String getName() {
 		return name;

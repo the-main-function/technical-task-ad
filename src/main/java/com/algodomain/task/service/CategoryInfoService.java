@@ -1,5 +1,7 @@
 package com.algodomain.task.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class CategoryInfoService {
 		
 	public CategoryInfo getCategoryByName(String name) {
 		return categoryInfoRepo.getCategoryInfoByName(name);
+	}
+	
+	public Iterable<CategoryInfo> saveAllCategory(List<CategoryInfo> categoryInfoList) {
+		return categoryInfoRepo.saveAll(categoryInfoList);
 	}
 	
 }
