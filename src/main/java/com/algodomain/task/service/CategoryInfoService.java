@@ -14,8 +14,12 @@ public class CategoryInfoService {
 	@Autowired
 	private CategoryInfoRepository categoryInfoRepo;
 	
-	public CategoryInfo saveCategory(CategoryInfo category) {
-		return categoryInfoRepo.save(category);
+	public boolean ifCategoryExists(CategoryInfo categoryInfo) {
+		return categoryInfoRepo.existsById(categoryInfo.getCategoryId());
+	}
+	
+	public CategoryInfo saveCategory(CategoryInfo categoryInfo) {
+		return categoryInfoRepo.save(categoryInfo);
 	}
 		
 	public CategoryInfo getCategoryByName(String name) {

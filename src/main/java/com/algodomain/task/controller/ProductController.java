@@ -25,7 +25,7 @@ public class ProductController {
 	@PostMapping("/product")
 	public ResponseEntity<Product> addProduct(@RequestBody Product product) {
 		if(productService.ifProductExist(product)) {
-			throw new ResourceExistsException("resource already exists");
+			throw new ResourceExistsException("product", "id", product.getProductId());
 		}
 		return new ResponseEntity<Product>(productService.saveProduct(product),HttpStatus.CREATED);
 	}
