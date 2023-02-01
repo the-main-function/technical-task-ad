@@ -56,6 +56,7 @@ public class ProductService {
 		existingProduct.setCategory(product.getCategory());
 		existingProduct.setBasePrice(product.getBasePrice());
 		existingProduct.setProductType(product.getProductType());
-		return saveProduct(existingProduct);
+		saveProduct(existingProduct);
+		return getProduct(existingProduct.getProductId());
 	}
 }

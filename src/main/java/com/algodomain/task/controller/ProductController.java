@@ -1,6 +1,7 @@
 package com.algodomain.task.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class ProductController {
 	
 	@PostMapping("/product")
 	public ResponseEntity<Product> addProduct(@RequestBody Product product) {
-		return ResponseEntity.ok(productService.saveProduct(product));
+		return new ResponseEntity<Product>(productService.saveProduct(product),HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/products/{productId}")
@@ -33,7 +34,7 @@ public class ProductController {
 	@DeleteMapping("/products/{productId}")
 	public ResponseEntity<ApiResponse> deleteProduct(@PathVariable int productId) {
 		productService.removeProduct(productId);
-		return ResponseEntity.ok(new ApiResponse("product with id : " + productId + "deleted", true));
+		return ResponseEntity.ok(new ApiResponse("product with id : " + productId + " deleted", true));
 	}
 	
 	@PutMapping("/product")

@@ -1,6 +1,8 @@
 package com.algodomain.task.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +17,7 @@ public class CategoryInfoController {
 	private CategoryInfoService categoryInfoService;
 	
 	@PostMapping("/category")
-	public void addCategory(@RequestBody CategoryInfo category) {
-		System.out.println(category);
-		categoryInfoService.saveCategory(category);
-		
+	public ResponseEntity<CategoryInfo> addCategory(@RequestBody CategoryInfo categoryInfo) {
+		return new ResponseEntity<>(categoryInfoService.saveCategory(categoryInfo),HttpStatus.CREATED);
 	}
 }
