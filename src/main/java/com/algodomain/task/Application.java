@@ -29,21 +29,21 @@ public class Application implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("RUNNING AS SOON AS SPRING BOOT APP STARTS");
-//		List<CategoryInfo> categoryInfoList = new ArrayList<>();
-//		categoryInfoList.add(new CategoryInfo("Electronics",15,18,350));
-//		categoryInfoList.add(new CategoryInfo("Home Appliances",22,24,800));
-//		categoryInfoList.add(new CategoryInfo("Clothing",40,12,0));
-//		categoryInfoList.add(new CategoryInfo("Furniture",10,18,300));
-//		categoryInfoService.saveAllCategory(categoryInfoList);
+		List<CategoryInfo> categoryInfoList = new ArrayList<>();
+		categoryInfoList.add(new CategoryInfo("Electronics",15,18,350));
+		categoryInfoList.add(new CategoryInfo("Home Appliances",22,24,800));
+		categoryInfoList.add(new CategoryInfo("Clothing",40,12,0));
+		categoryInfoList.add(new CategoryInfo("Furniture",10,18,300));
+		categoryInfoService.saveAllCategory(categoryInfoList);
 		
-//		List<Product> productList = new ArrayList<>();
-//		productList.add(new Product(1001, "Lenevo Yoga", "Laptop", "Electronics", 45000));
-//		productList.add(new Product(1002, "LG Washing Machine", "Washing Machine", "Home Appliances", 25000));
-//		productList.add(new Product(1003, "HP Pavillion 360", "Laptop", "Electronics", 60000));
-//		productList.add(new Product(1004, "U S Polo Assn", "T-Shirt", "Clothing", 1200));
-//		productList.add(new Product(1005, "Neelkamal Been Bag", "Sofa Set", "Furniture", 350));
+		List<Product> productList = new ArrayList<>();
+		productList.add(new Product(1001, "Lenevo Yoga", "Laptop", "Electronics", 45000));
+		productList.add(new Product(1002, "LG Washing Machine", "Washing Machine", "Home Appliances", 25000));
+		productList.add(new Product(1003, "HP Pavillion 360", "Laptop", "Electronics", 60000));
+		productList.add(new Product(1004, "U S Polo Assn", "T-Shirt", "Clothing", 1200));
+		productList.add(new Product(1005, "Neelkamal Been Bag", "Sofa Set", "Furniture", 350));
 		
-//		productList.forEach(product -> productService.saveProduct(product));
+		productList.forEach(product -> productService.saveProduct(product));
 	}
 
 }
