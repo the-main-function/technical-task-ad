@@ -63,4 +63,8 @@ public class ProductService {
 		saveProduct(existingProduct);
 		return getProduct(existingProduct.getProductId());
 	}
+	
+	public Iterable<Product> getAllProduct(){
+		return productRepo.findAll();
+	}
 }

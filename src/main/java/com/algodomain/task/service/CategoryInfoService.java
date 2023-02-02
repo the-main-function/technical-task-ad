@@ -30,4 +30,9 @@ public class CategoryInfoService {
 		return categoryInfoRepo.saveAll(categoryInfoList);
 	}
 	
+	public Iterable<CategoryInfo> getAllCategory(){
+		return categoryInfoRepo.findAll();
+		
+	}
+	
 }
